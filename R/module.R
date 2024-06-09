@@ -104,10 +104,6 @@ block_ui <- \(id){
       )
     ),
     masonry::masonryGrid(
-      masonry::masonryRow(
-        classes = "border position-relative rounded my-2",
-        new_row_remove_ui(id)
-      ),
       id = grid_id,
       send_on_change = TRUE,
       styles = list(
@@ -155,7 +151,7 @@ handle_add_stack <- function(id, input, session = shiny::getDefaultReactiveDomai
         list()
       )
       blockr.ui::add_stack_bind(
-        add_id,
+        session$ns(add_id),
         delay = 50
       )
     })
